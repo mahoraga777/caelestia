@@ -100,6 +100,9 @@ tagged_rule(float_60_70_tag, {
     { title = "(Save|Export) Image", class = "gimp" }, -- GIMP export/save
 })
 tagged_rule(float_60_70_tag, {
+    { title = "Blender File View", class = "blender" }, -- Blender file dialogs
+})
+tagged_rule(float_60_70_tag, {
     "org.pulseaudio.pavucontrol|com.saivert.pwvucontrol", -- Audio control
     "yad-icon-browser",                                   -- GTK icon browser
 }, "class")
@@ -171,6 +174,15 @@ tagged_rule(float_tag, {
     { class = "PandoraLauncher",    title = "Minecraft Game Output" },
 })
 
+-- Make browsers non-transparent when watching YouTube or Picture-in-Picture
+hl.window_rule({
+    match = {
+        class = "firefox|Brave-browser|chromium|google-chrome|zen-alpha|microsoft-edge|Vivaldi",
+        title = ".*(YouTube|Picture(-| )in(-| )[Pp]icture).*",
+    },
+    tag = "+opaque",
+    opacity = "1.0 override",
+})
 
 -------------------------
 ---- Tag definitions ----
